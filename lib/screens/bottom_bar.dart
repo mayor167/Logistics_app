@@ -28,7 +28,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1a1a1a),
+      // backgroundColor: Color(0xFF1a1a1a),
       body: Center(child: _widgetNavOptions[_selectedIndex],), 
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -40,7 +40,7 @@ class _BottomBarState extends State<BottomBar> {
           boxShadow: [
             BoxShadow(
               // ignore: deprecated_member_use
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.black.withOpacity(0.5),
               blurRadius: 0.1,
               spreadRadius: 0.1,
             )
