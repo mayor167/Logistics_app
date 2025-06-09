@@ -22,11 +22,33 @@ class EflierScreen extends StatefulWidget {
 class _EflierScreenState extends State<EflierScreen> {
   final PageController _pageController = PageController( initialPage: 0);
   int currentPage = 0;
+  bool isIncrementing = true;
   late Timer timer;
   @override
   void initState() {
-    timer = Timer.periodic(Duration(seconds: 2), (timer){
-      
+    timer = Timer.periodic(Duration(seconds: 10), (timer){
+       if (isIncrementing) {
+    if (currentPage < images.length - 1) {
+      currentPage++;
+    } else {
+      isIncrementing = false;  // switch direction
+      currentPage--;
+    }
+  } else {
+    if (currentPage > 0) {
+      currentPage--;
+    } else {
+      isIncrementing = true;  // switch direction
+      currentPage++;
+    }
+  }
+      // if (currentPage < images.length){
+      //       currentPage++;
+      // }
+      // else{
+      //   currentPage=0;
+      // }
+  _pageController.animateToPage(currentPage, duration: const Duration(milliseconds: 1000), curve: Curves.easeIn); 
     });
     // TODO: implement initState
     super.initState();

@@ -1,6 +1,7 @@
 import 'package:dashboard_project_new/screens/eflier_screen.dart';
 import 'package:dashboard_project_new/utilis/app_layout.dart';
 import 'package:dashboard_project_new/utilis/app_styles.dart';
+import 'package:dashboard_project_new/widgets/custom_circle_avatar_widget.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
@@ -12,11 +13,12 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStyles.bigColor,
+      backgroundColor: Color(0xFF1b1b1b),
       body: ListView(
               children: [
                 //background image container
                 Container(
+                 
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   height: 185,
                   width: double.infinity,
@@ -163,6 +165,24 @@ class DashboardScreen extends StatelessWidget {
                 ),
                   //Image E-flier slider conatainer
                  EflierScreen(),
+                 //row after image slider
+                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        CustomCircleAvatarWidget(icon: FluentIcons.location_24_regular, label: "Check Rate",),
+                        CustomCircleAvatarWidget(icon: FluentIcons.location_24_regular, label: "Location",),
+                        CustomCircleAvatarWidget(icon: FluentIcons.location_24_regular, label: "Vehicles info",),
+                        CustomCircleAvatarWidget(icon: FluentIcons.location_24_regular, label: "Goods weight",),
+                    ],
+                   ),
+                 ),
+                 //Recent Shipping container
+                 Container(
+                  height: MediaQuery.of(context).size.height*0.30,
+                  color:Colors.red,
+                 )
               ],
       ),
     );
