@@ -5,6 +5,7 @@ import 'package:dashboard_project_new/widgets/custom_circle_avatar_widget.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class DashboardScreen extends StatelessWidget {
@@ -179,10 +180,113 @@ class DashboardScreen extends StatelessWidget {
                    ),
                  ),
                  //Recent Shipping container
+                SizedBox(height: 25,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15,),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Recent Shipping", style: AppStyles.headLineStyle2,),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: AppStyles.primaryColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text("See All", style: AppStyles.headLineStyle3.copyWith(color: Colors.white),))
+                    ],
+                  ),
+                ),
                  Container(
-                  height: MediaQuery.of(context).size.height*0.30,
-                  color:Colors.red,
-                 )
+                  margin: EdgeInsets.all(10),
+                  height: MediaQuery.of(context).size.height*0.3,
+                  decoration: BoxDecoration(
+                    color:Color(0xFF212121),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                 ),
+                 child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                              CircleAvatar(
+                                     maxRadius: 20,
+                                     backgroundColor: Color(0xFF262626),
+                                     child: Icon(
+                                      FontAwesomeIcons.apple, color: AppStyles.iconColor,),
+                                            ),
+                                            SizedBox(width: 4,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("Macbook Air M1", style:AppStyles.headLineStyle3.copyWith(fontSize: 12) ,),
+                                                SizedBox(height: 3,),
+                                                Text("W7564D420", style: AppStyles.headLineStyle4,),
+                                              ],
+                                            ),
+                                            
+                             ], 
+                            ),
+                        ),
+                           Container(
+                                     width: 100, // Adjust width as needed
+                                      height: 100,
+                                       child: Image.asset('assets/images/delivery_van.png',
+                                                  fit: BoxFit.contain, ),
+                                       ),
+     
+                      ],
+                    ),
+                    //row for delivery details
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                       Icon(FluentIcons.location_24_regular,color: Colors.grey,size: 15,),
+                                       SizedBox(width: 2,),
+                                        Text("Location", style: AppStyles.headLineStyle4,)
+                                  ]
+                                 
+                                ),
+                                Text("New York, USA", style: AppStyles.headLineStyle3,),
+                                
+                              ],
+                            ),
+                      
+                            Column(
+                              children: [
+                                Row(
+                                  children: [
+                                       Icon(FluentIcons.timer_24_regular,color: Colors.grey,size: 15,),
+                                       SizedBox(width: 2,),
+                                        Text("Delivery Time ", style: AppStyles.headLineStyle4,)
+                                  ]
+                                 
+                                ),
+                                Text("2H:45m", style: AppStyles.headLineStyle3,),
+                                
+                              ],
+                            ),
+                          ],
+                      ),
+                    ),
+                    Divider(height: 1,thickness: 1,color: Color(0xFF969696),)
+                         
+                  ],
+                 ) ,
+                  ),
+                  
               ],
       ),
     );
