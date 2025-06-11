@@ -1,3 +1,4 @@
+import 'package:dashboard_project_new/screens/assignment_dashboard.dart';
 import 'package:dashboard_project_new/screens/dashboard_screen.dart';
 import 'package:dashboard_project_new/screens/notification_screen.dart';
 import 'package:dashboard_project_new/screens/profile_screen.dart';
@@ -16,9 +17,10 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetNavOptions = <Widget>[
                       const DashboardScreen(),
+                      const AssignmentDashboard(),
                       const WalletHistoryScreen(),
                       const NotificationScreen(),
-                      const ProfileScreen()
+                      const ProfileScreen(),
   ];
   void _onNavIconTapped(int index){
             setState(() {
@@ -50,6 +52,7 @@ class _BottomBarState extends State<BottomBar> {
         child: BottomNavigationBar(
            items: [
                 BottomNavigationBarItem(icon: Icon(FluentIcons.home_24_regular),activeIcon: Icon(FluentIcons.home_24_filled),label: "Home"),
+                 BottomNavigationBarItem(icon: Icon(FluentIcons.home_24_regular),activeIcon: Icon(FluentIcons.home_24_filled),label: "Home"),
                 BottomNavigationBarItem(
                 icon: Icon(FluentIcons.wallet_24_regular), // Regular wallet icon
                 activeIcon: Icon(FluentIcons.wallet_24_filled), // Filled wallet icon for active state
