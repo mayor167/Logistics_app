@@ -1,4 +1,5 @@
 import 'package:dashboard_project_new/utilis/app_styles.dart';
+import 'package:dashboard_project_new/widgets/white_transaction_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class AssignmentDashboard extends StatelessWidget {
@@ -7,9 +8,10 @@ class AssignmentDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf4f7fd),
+      backgroundColor: Color(0xFFf5f6fc),
       body:ListView(
                 children: [
+                  //Parent blue container
                   Container(
                     height: MediaQuery.of(context).size.height*0.38,
                     width: double.infinity,
@@ -99,13 +101,15 @@ class AssignmentDashboard extends StatelessWidget {
                             child: Row(
                               children: [
                                 //the white card conatiner
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                                  height: 100,
-                                  width: MediaQuery.of(context).size.width*.70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Color(0xFFfefdfe),
+                                Stack(
+                                  children: [
+                                     Container(
+                                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                                        height: 100,
+                                        width: MediaQuery.of(context).size.width*.70,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                          color: Color(0xFFfefdfe),
                                   ),
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,6 +144,27 @@ class AssignmentDashboard extends StatelessWidget {
                                     ],
                                   ),
                                 ),
+                                //first cicrle
+                                Positioned(
+                                  bottom: -10,
+                                  right: 2,
+                                  child: CircleAvatar(
+                                  maxRadius: 30,
+                                  // ignore: deprecated_member_use
+                                  backgroundColor: Color(0xFFdedef9).withOpacity(0.3),
+                                  )
+                                  ),
+                                   Positioned(
+                                  bottom: 10,
+                                  right: -8,
+                                  child: CircleAvatar(
+                                  maxRadius: 25,
+                                  // ignore: deprecated_member_use
+                                  backgroundColor: Color(0xFFeeeefe).withOpacity(0.6),
+                                  )
+                                  ),
+                                  ],
+                                ),
                                 SizedBox(width: 20,),
                                 // light blue card container
                                 Container(
@@ -172,6 +197,7 @@ class AssignmentDashboard extends StatelessWidget {
                                                   child: Image.asset("assets/images/signature.png", fit: BoxFit.contain,opacity:AlwaysStoppedAnimation(0.5),)),
                                               ],
                                             ),
+                                            SizedBox(height: 3,),
                                           Container(
                                             padding: EdgeInsets.symmetric(horizontal: 5),
                                             child: Row(
@@ -189,8 +215,116 @@ class AssignmentDashboard extends StatelessWidget {
 
                       ],
                     ),
+                  ), //END PARENT BLUE CONTAINER
+                  SizedBox(height: 10,),
+                  //Change user profile container
+                  Container(
+                    height: 80,
+                    margin: EdgeInsets.symmetric(horizontal: 10,),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFf6f8fa),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      boxShadow:[ BoxShadow(
+                         color: Colors.grey.withOpacity(0.5), 
+                         spreadRadius: 1, 
+                         blurRadius: 5,
+                         )  
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Change User Profile", style: AppStyles.headLineStyle3.copyWith(color: Color(0xFF4845f2), fontSize: 17),),
+                         Text("Changes could be spontaneous", style: AppStyles.headLineStyle4.copyWith(color: Color(0xFF4845f2),fontSize: 9),),
+
+                      ],
+                    ),
                   ),
-                  
+                //END Change user profile container
+                  SizedBox(height: 20,),
+                  Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Stack(
+                        children: [
+                              Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 10),
+                                    height: MediaQuery.of(context).size.height*.16,
+                                    width: MediaQuery.of(context).size.width*.26,
+                                    // width: 50,
+                                    decoration: BoxDecoration(
+                                    color: Color(0xFF395fe6),
+                                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                            ),
+                                  child:Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 10),
+                                            // color: Colors.red,
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                    Text("1", style: AppStyles.headLineStyle1.copyWith(fontSize: 20),),
+                                                      SizedBox(height: 52,),
+                                                      Text("Sean Martinez", style: AppStyles.headLineStyle4.copyWith(color: Color(0xFFfffffd), 
+                                                      fontWeight:FontWeight.w900,)),
+                                              ],
+                                            ),
+                                          ),
+                                      Container(
+                                        padding: EdgeInsets.symmetric(horizontal: 34),
+                                          child:Column(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Text("\$300", style: AppStyles.headLineStyle4.copyWith(color:Colors.white, fontSize: 8)),
+                                            ],
+                                          ),
+                                      ),
+                                    ],
+                                  ) ,
+                          
+                              ),
+                              Positioned(
+                                top: -32,
+                                right: -1,
+                                child: Row(
+                                children: [
+                                  Text("1", style: AppStyles.headLineStyle1.copyWith(color: Color(0xFF4f71f0), fontSize: 90),)
+                                ],
+                              ))
+                        ]
+                      ),
+
+                      WhiteTransactionCardWidget(number: "2", name: "Sean Martinez", amount: "\$400",stackNumber: "2",),
+
+                       WhiteTransactionCardWidget(number: "3", name: "Sean Martinez", amount: "\$500",stackNumber: "3",),
+
+                      //  Container(
+                      //   margin: EdgeInsets.symmetric(horizontal: 10),
+                      //   height: 110,
+                      //   width: 50,
+                      //   decoration: BoxDecoration(
+                      //             color: Color(0xFF395fe6),
+                      //             borderRadius: BorderRadius.all(Radius.circular(5)),
+                      //   ),
+                      //   child:Column(
+                      //     children: [
+                      //         Text("1", style: AppStyles.headLineStyle1,)
+                      //     ],
+                      //   ) ,
+                        
+                      // ),
+                    ],
+                  ),
+                  SizedBox(height: 15,),
+                  Row(
+                    children: [
+                       WhiteTransactionCardWidget(number: "4", name: "Sean Martinez", amount: "\$500",stackNumber: "4",),
+                        WhiteTransactionCardWidget(number: "5", name: "Sean Martinez", amount: "\$600",stackNumber: "5",),
+                    ],
+                  )
                 ],
       ) ,
     );
